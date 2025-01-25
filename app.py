@@ -13,6 +13,7 @@ class Product(db.Model):
     id = db.column(db.integer, primary_key=True)
     name = db.column(db.string(120), nullable=False)
     price = db.column(db.float, nullable=False) # 9 != 8.99
+    description = db.column(db.Text, nullable=True) # texto longo e opcional
 
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
