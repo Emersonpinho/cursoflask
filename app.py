@@ -11,6 +11,7 @@ db = SQLAlchemy(app)
 
 class Product(db.Model):
     id = db.column(db.integer, primary_key=True)
+    name = db.column(db.string(120), nullable=False)
 
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
