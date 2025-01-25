@@ -5,7 +5,14 @@ app = Flask(__name__)
 app.config['SQLALCHEMY DATABASE URI'] = 'sqlite:///ecommerce.db'
 
 db = SQLAlchemy(app)
-# definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
+
+# Modelagem
+# Produto (id, name, price, description)
+
+class Product(db.Model):
+    
+
+# Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
 def hello_world():
     return 'Hello, world!'
