@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-
+app.config['SQLALCHEMY DATABASE URI'] = 'sqlite:///ecommerce.db'
 # definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/teste')
 def hello_world():
