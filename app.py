@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -17,7 +17,8 @@ class Product(db.Model):
 
 @app.route('/api/products/add')
 def add_product():
-    
+    data = request.json
+
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
 def hello_world():
