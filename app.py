@@ -15,6 +15,7 @@ class Product(db.Model):
     price = db.Column(db.Float, nullable=False) # 9 != 8.99
     description = db.Column(db.Text, nullable=True) # texto longo e opcional
 
+
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
 def hello_world():
