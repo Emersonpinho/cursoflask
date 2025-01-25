@@ -16,6 +16,8 @@ class Product(db.Model):
     description = db.Column(db.Text, nullable=True) # texto longo e opcional
 
 @app.route('/api/products/add')
+def add_product():
+    
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
 def hello_world():
