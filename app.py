@@ -2,18 +2,18 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY DATABASE URI'] = 'sqlite:///ecommerce.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ecommerce.db'
 
 db = SQLAlchemy(app)
 
 # Modelagem
-# Produto (id, name, price, description)
+    # Produto (id, name, price, description)
 
 class Product(db.Model):
-    id = db.column(db.integer, primary_key=True)
-    name = db.column(db.string(120), nullable=False)
-    price = db.column(db.float, nullable=False) # 9 != 8.99
-    description = db.column(db.Text, nullable=True) # texto longo e opcional
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120), nullable=False)
+    price = db.Column(db.Float, nullable=False) # 9 != 8.99
+    description = db.Column(db.Text, nullable=True) # texto longo e opcional
 
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
