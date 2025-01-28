@@ -35,6 +35,9 @@ def delete_product(product_id):
     # Se existir, deletar o produto da base de dados
     # se não existir, retornar um erro 404 not found
     product =  Product.query.get(product_id)
+    if product:
+        db.session.delete(product)
+        db.session.commit()
 
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
