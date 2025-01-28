@@ -19,7 +19,9 @@ class Product(db.Model):
 def add_product():
     data = request.json
     Product =  Product(name=data["name"], price=data["price"], description=data.get("description", ""))
-    return data 
+    db.session.add(Product)
+    db.session.commit()
+    return "Produto adicionafo com sucesso!" 
 
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
