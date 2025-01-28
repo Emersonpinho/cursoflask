@@ -18,10 +18,10 @@ class Product(db.Model):
 @app.route('/api/products/add', methods=['POST'])
 def add_product():
     data = request.json
-    Product =  Product(name=data["name"], price=data["price"], description=data.get("description", ""))
-    db.session.add(Product)
+    product =  Product(name=data["name"], price=data["price"], description=data.get("description", ""))
+    db.session.add(product)
     db.session.commit()
-    return "Produto adicionafo com sucesso!" 
+    return "Produto adicionadoo com sucesso!" 
 
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
