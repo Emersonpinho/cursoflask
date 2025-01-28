@@ -15,7 +15,7 @@ class Product(db.Model):
     price = db.Column(db.Float, nullable=False) # 9 != 8.99
     description = db.Column(db.Text, nullable=True) # texto longo e opcional
 
-@app.route('/api/products/add', )
+@app.route('/api/products/add', methods=['POST'])
 def add_product():
     data = request.json
 
