@@ -18,7 +18,7 @@ class Product(db.Model):
 @app.route('/api/products/add', methods=['POST'])
 def add_product():
     data = request.json
-    Product =  Product(name=,price=,description=)
+    Product =  Product(name=data["name"], price=data["data"], description=data.get("description", ""))
     return data 
 
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
