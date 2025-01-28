@@ -17,12 +17,15 @@ class Product(db.Model):
 
 @app.route('/api/products/add', methods=['POST'])
 def add_product():
+    # Recupera os dados enviados no corpo da requisição
     data = request.json
+
+    # Verifica se os dados foram enviados corretamente e logo depois faz o retorno da resposta
     if 'name' in data and 'price' in data:
         product =  Product(name=data["name"], price=data["price"], description=data.get("description", ""))
         db.session.add(product)
         db.session.commit()
-        return jsonify({"message": "product added successfully"}), 201
+        return jsonify({"message": "product added successfully"}), 200
     return jsonify({"message": "invalid product data"}), 400
 
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
