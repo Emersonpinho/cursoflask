@@ -23,7 +23,7 @@ def add_product():
         db.session.add(product)
         db.session.commit()
         return "Produto adicionadoo com sucesso!"
-    return jsonify()
+    return jsonify({"message": "invalid product data"  })
 
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
