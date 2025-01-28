@@ -30,14 +30,12 @@ def add_product():
 
 @app.route('/api/products/delete/<int:product_id>', methods=['DELETE'])
 def delete_product(product_id):
-    # Recuperar o produto da base de dados
-    # Verificar se o produto existe
-    # Se existir, deletar o produto da base de dados
-    # se não existir, retornar um erro 404 not found
     product =  Product.query.get(product_id)
     if product:
         db.session.delete(product)
         db.session.commit()
+        return jsonify({"message": "Product deleted successfully"}), 200
+    return jsonify({"message": "Product not found"}), 404
 
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
