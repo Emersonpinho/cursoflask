@@ -22,8 +22,8 @@ def add_product():
         product =  Product(name=data["name"], price=data["price"], description=data.get("description", ""))
         db.session.add(product)
         db.session.commit()
-        return "Produto adicionadoo com sucesso!"
-    return jsonify({"message": "invalid product data"}), 
+        return jsonify({"message": "product added successfully"}), 201
+    return jsonify({"message": "invalid product data"}), 400
 
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
