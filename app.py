@@ -63,6 +63,9 @@ def update_product(product_id):
     if 'price' in data:
         product.price = data['price']
 
+    if 'description' in data:
+        product.description = data['description']
+
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
 def hello_world():
