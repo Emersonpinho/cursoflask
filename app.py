@@ -50,7 +50,7 @@ def get_product_details(product_id):
         })
     return jsonify({"message": "product not found"}), 404
 
-@app.route('/api/products/update/<int:product_id>', methods=['DELETE'])
+@app.route('/api/products/update/<int:product_id>', methods=['PUT'])
 
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
