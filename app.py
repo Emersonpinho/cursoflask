@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ecommerce.db'
@@ -80,7 +81,7 @@ def get_products():
             "price": product.price
         }
         product_list.append(product_data)
-        
+
     return jsonify(product_list)
 
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
