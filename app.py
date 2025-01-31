@@ -47,6 +47,7 @@ def get_product_details(product_id):
             "price": product.price,
             "decription": product.description
         })
+    return jsonify({"message": "product not found"}), 404
 
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
