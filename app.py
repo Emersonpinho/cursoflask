@@ -80,6 +80,7 @@ def get_products():
             "price": product.price
         }
         product_list.append(product_data)
+        
     return jsonify(product_list)
 
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
