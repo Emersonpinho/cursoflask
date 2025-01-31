@@ -57,7 +57,9 @@ def update_product(product_id):
         return jsonify({"message": "product not found"}), 404
     
     data = request.json
-    
+    if 'name' in data:
+        product.name = data['name']
+
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
 def hello_world():
