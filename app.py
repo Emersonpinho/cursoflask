@@ -72,11 +72,16 @@ def update_product(product_id):
 @app.route('/api/products', methods=['GET'])
 def get_products():
     products = Product.query.all()
-    print(products)
+    product_list = []
     for product in products:
-        print(product)
-
-    return jsonify({'message': 'teste'})
+         product_data = {
+            "id": product.id,
+            "name": product.name,
+            "price": product.price,
+            "decription": product.description
+        }
+        product_list.append(product_data)
+    return jsonify(product_list)
 
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
