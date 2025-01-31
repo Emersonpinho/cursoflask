@@ -69,6 +69,8 @@ def update_product(product_id):
     db.session.commit()
     return jsonify({"message": "product updated successfully"}), 200
 
+@app.route('/api/products', methods=['GET'])
+
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
 def hello_world():
