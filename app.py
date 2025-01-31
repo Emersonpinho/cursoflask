@@ -51,7 +51,13 @@ def get_product_details(product_id):
     return jsonify({"message": "product not found"}), 404
 
 @app.route('/api/products/update/<int:product_id>', methods=['PUT'])
-
+def update_product(product_id):
+    product = Product.query.get(product_id)
+    if not product:
+        return jsonify({"message": "product not found"}), 404
+    
+    data = request.json
+    
 # Definir uma rota raiz (pagina incial) e a função que será executada ao requisitar.
 @app.route('/')
 def hello_world():
