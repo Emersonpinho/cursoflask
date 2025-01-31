@@ -9,6 +9,7 @@ db = SQLAlchemy(app)
 # Modelagem
     # Produto (id, name, price, description)
 
+#salvando no banco de dados
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), nullable=False)
