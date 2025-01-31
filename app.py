@@ -74,7 +74,7 @@ def get_products():
     products = Product.query.all()
     product_list = []
     for product in products:
-         product_data = {
+        product_data = {
             "id": product.id,
             "name": product.name,
             "price": product.price,
