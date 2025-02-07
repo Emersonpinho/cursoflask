@@ -14,7 +14,8 @@ CORS(app)
 class User(db.Model, UserMixin):
     id = db.column(db.integer, primary_key=True)
     username = db.column(db.String(80), nullable=False, unique=True)
-    password = db.column(db.username(80), nullable=False)
+    password = db.column(db.username(80), nullable=False, unique=True)
+    
 # Modelagem
 # Produto (id, name, price, description)
 
