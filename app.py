@@ -12,6 +12,7 @@ CORS(app)
 # Modelagem
 # usuario (id, username, password)
 class User(db.Model, UserMixin):
+    id = db.column(db.integer, primary_key=True)
     
 # Modelagem
 # Produto (id, name, price, description)
