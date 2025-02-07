@@ -30,7 +30,7 @@ def add_product():
 
     # Verifica se os dados foram enviados corretamente e logo depois faz o retorno da resposta
     if 'name' in data and 'price' in data:
-        product =  Product(name=data["name"], price=data["price"], description=data.get("description", ""))
+        product = Product(name=data["name"], price=data["price"], description=data.get("description", ""))
         db.session.add(product)
         db.session.commit()
         return jsonify({"message": "product added successfully"}), 200
