@@ -15,6 +15,14 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), nullable=False, unique=True)
     password = db.Column(db.String(80), nullable=True)
+
+@app.route('/login', methods=["POST"])
+def login():
+    data = request.json
+    
+    user = User.query.filter_by(username=data.get("username")).first()
+    print(user)
+    return jsonify({"message": "logged in sucessfully"}), 200
     
 # Modelagem
 # Produto (id, name, price, description)
