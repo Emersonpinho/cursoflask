@@ -21,8 +21,14 @@ def login():
     data = request.json
     
     user = User.query.filter_by(username=data.get("username")).first()
-    print(user)
-    return jsonify({"message": "logged in sucessfully"}), 200
+    
+    if user:
+        if data.get("password") == user.password:
+            return jsonify({"message": "logged in sucessfully"}), 200
+        
+        return jsonify({"message": "Unauthorized. Invalid credentials"}), 401
+
+
     
 # Modelagem
 # Produto (id, name, price, description)
