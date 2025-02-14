@@ -8,6 +8,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ecommerce.db'
 
 login_manager = LoginManager()
 db = SQLAlchemy(app)
+login_manager.login_view = 'login'
 CORS(app)
 
 # Modelagem
