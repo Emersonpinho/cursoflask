@@ -22,11 +22,11 @@ def login():
     
     user = User.query.filter_by(username=data.get("username")).first()
     
-    if user:
-        if data.get("password") == user.password:
+    if user and data.get("password") == user.password:
             return jsonify({"message": "logged in sucessfully"}), 200
+    
+    return jsonify({"message": "Unauthorized. Invalid credentials"}), 401
         
-        return jsonify({"message": "Unauthorized. Invalid credentials"}), 401
 
 
     
