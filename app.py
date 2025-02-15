@@ -60,6 +60,7 @@ def add_product():
     return jsonify({"message": "invalid product data"}), 400
 
 @app.route('/api/products/delete/<int:product_id>', methods=['DELETE'])
+@login_required
 def delete_product(product_id):
     product =  Product.query.get(product_id)
     if product:
@@ -81,6 +82,7 @@ def get_product_details(product_id):
     return jsonify({"message": "product not found"}), 404
 
 @app.route('/api/products/update/<int:product_id>', methods=['PUT'])
+@login_required
 def update_product(product_id):
     product = Product.query.get(product_id)
     if not product:
