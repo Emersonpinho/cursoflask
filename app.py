@@ -46,6 +46,7 @@ class Product(db.Model):
     description = db.Column(db.Text, nullable=True) # texto longo e opcional
 
 @app.route('/api/products/add', methods=['POST'])
+@login_required
 def add_product():
     # Recupera os dados enviados no corpo da requisição
     data = request.json
