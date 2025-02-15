@@ -45,6 +45,11 @@ class Product(db.Model):
     price = db.Column(db.Float, nullable=False) # 9 != 8.99
     description = db.Column(db.Text, nullable=True) # texto longo e opcional
 
+# Autenticação
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
 @app.route('/api/products/add', methods=['POST'])
 @login_required
 def add_product():
